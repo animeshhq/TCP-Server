@@ -93,6 +93,18 @@ int main() {
     std::cout << "========================================\n";
     std::cout << RESET << '\n';
 
+    info("Chat to the client");
+
+    char buffer[200];
+
+    int byteCount = recv(acceptSock, buffer, 200, 0);
+
+    if(byteCount > 0){
+        std::cout << "Message recieved: " << buffer << std::endl;
+    } else {
+        WSACleanup();
+    }
+
     system("pause");
 
     closesocket(acceptSock);

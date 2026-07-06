@@ -66,6 +66,21 @@ int main() {
     std::cout << "========================================\n";
     std::cout << RESET << '\n';
 
+
+    info("Chat to the server");
+
+    char buffer[200];
+    info("Please enter a message to send to the server...");
+    std::cin.getline(buffer, 200);
+    int byteCount = send(clientSock, buffer, 200, 0);
+
+    if(byteCount > 0){
+        std::cout << "Message sent: " << buffer << std::endl;
+    } else {
+        WSACleanup();
+    }
+
+    info("Closing the sockets...");
     system("pause");
 
     closesocket(clientSock);
