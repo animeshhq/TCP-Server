@@ -8,6 +8,8 @@
 #define YELLOW  "\033[33m"
 #define CYAN    "\033[36m"
 
+#define BUFFER_SIZE 4096
+
 void info(const std::string& msg);
 void success(const std::string& msg);
 void warning(const std::string& msg);
